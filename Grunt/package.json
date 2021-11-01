@@ -1,0 +1,14 @@
+{
+  "name": "grunt_learning",
+  "version": "1.0.0",
+  "description": "For learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "AyatukiRin",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.4.1"
+  }
+}

@@ -1,0 +1,24 @@
+# Todo-List 
+- Electron + VueCli + WebPack
+- Threejs with typeScript 
+- E2E test FrameWork (CodeceptJS)
+- luge.cool
+- window package  (Scoop)
+- Regex Expression
+- Coding assistance tool (Eslint, prettier, JShint)
+- Headless Browser. [Maybe Can FIx it ](https://github.com/puppeteer/puppeteer/issues/2794)
+- libuv ( NodeJS Diving more )
+- Event-based network and Thread-based network
+- Context switch for thread and process
+- WebGPU and WebGL
+- Template literals
+- [OAS(OpenAPI Specification)](https://swagger.io/specification/)
+- Vue-cli project
+- Web Protocol
+- GraphQL
+- [Modal in Nested Modal Issue](https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background?page=1&tab=votes#tab-top)
+- https://uploadcare.com/products/file-uploader/
+- 'cp932' codec can't decode byte 0xef in position 2669: illegal multibyte sequence [Python web lib issue]
+- [ASCii vs Unicode vs UTF-8/16](https://zhuanlan.zhihu.com/p/38333902)
+- [NPM vs Yarn](https://www.whitesourcesoftware.com/free-developer-tools/blog/npm-vs-yarn-which-should-you-choose/)
+- Express
