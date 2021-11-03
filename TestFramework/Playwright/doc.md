@@ -1,1 +1,0 @@
-# [Playwright](https://playwright.dev/docs/intro/)
