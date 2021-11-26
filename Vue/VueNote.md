@@ -2,7 +2,7 @@
 
 ## **Vue Computed and the Methods**
 
-Keep in mind that the Computed property always create Getter/Setter function for itself. **Computed properties are cached based on their reactive dependencies**. This means as long as **data** have not changed, multiple access to the properties function will immediately return the **<u>Previously</u>** computed result without having to run the setter in that function. In comparison, a method invocation will **always** run the function whenever a re-render happens.
+Computed property always create Getter/Setter function for itself. **Computed properties are cached based on their reactive dependencies**. This means as long as **data** have not changed, multiple access to the properties function will immediately return the **<u>Previously</u>** computed result without having to run the setter in that function. In comparison, a method invocation will **always** run the function whenever a re-render happens.
 
 ```javascript
 let test = new Vue({
@@ -40,7 +40,7 @@ test.foo3 = 2	// => set param = 2
 test.foo3		// => 2
 ```
 
-## Add responsive data after create  a instance of Vue
+## Add responsive data after create a instance of Vue
 
 Use $set method to set a responsive data after create a instance of Vue. But it is not recommend behavior. Just let the every data you will use into the initialize of Vue instance.
 
@@ -154,7 +154,79 @@ ChildComponent = {
 
 ## Vue.$watch
 
-**option: deep only watch deep one layer object properties.**
+### Official Documentation (2.x)
+
+> vm.$watch( exp/Fn, callback, [options])
+>
+> - Arguments:
+>
+> 	- {string | Function } expOrFn
+>
+> 	- {Function | Object } callback
+>
+> 	- {Object } [ options ]
+>
+> 		- {boolean } deep 
+>
+> 			> **To also detect nested value changes inside Objects, Note that you don't need to do so to listen for Array mutations.**
+> 			>
+> 			> **Notice: Only watch deep one layer**
+>
+> 		- {boolean } immediate
+>
+> 			> **Immediate fired the callback function with the current value of the expression.**
+>
+> - Returns: {Function} unwatch
+>
+> 	> **To stop firing the callback:**
+> 	>
+> 	> ```javascript
+> 	> var unwatch = vm.$watch("someValue", callback)
+> 	> // later, teardown the watcher
+> 	> unwatch()
+> 	> ```
+> 	>
+> 	> 
+
+### [Watch the children component reference](https://stackoverflow.com/questions/39035498/vuejs-watch-refs/45011980)
+
+```javascript
+const Counter = {
+  data: () => ({
+    i: 0
+  }),
+  template: `<fieldset>
+    <p>Counter</p>
+    <code>i = {{ i }}</code>
+    <button @click="i += 1"> Add One </button>
+  </fieldset>`
+}
+
+const App = {
+  components: { Counter },
+  mounted () {
+    this.$watch(
+    	() => {
+    		return this.$refs.counter.i
+    	},
+      (val) => {
+        alert('App $watch $refs.counter.i: ' + val)
+      }
+    )
+  },
+  template: `<fieldset>
+    <p>App</p>
+    <counter ref="counter" />
+  </fieldset>`
+}
+
+new Vue({
+	el: '#app',
+	render: h => h(App)
+})
+```
+
+
 
 ## What is Vue.$attrs
 
