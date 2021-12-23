@@ -58,9 +58,13 @@ console.log(obj?.propertyA?.propertyB)
 
 ## [Regular expressions](https://regex101.com/)
 
-## Function.prototype
+## Function
 
-### call()
+### Arrow Functions/Regular Functions
+
+> [Note This](https://betterprogramming.pub/difference-between-regular-functions-and-arrow-functions-f65639aba256)
+
+### Function.prototype.call()
 
 ```javascript
 function ProtolTypeCall() {
