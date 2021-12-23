@@ -20,9 +20,9 @@ console.log(obj && obj.propertyA && obj.propertyA.propertyB)
 console.log(obj?.propertyA?.propertyB)
 ```
 
-## ProtoType Chain And Inheritance
+## ProtoTypeChain
 
-> **Note: **Although the ES2015 have provide the `class` to make a oop like Feature, but it just a syntactical sugar base on JavaScript **ProtoType Chain**.
+> **Note: **Although the ES2015 have provide the `class` to make a `OOP` like Feature, but it just a syntactical sugar base on JavaScript **ProtoType Chain**.
 
 ### Constructor Function
 
@@ -54,20 +54,28 @@ console.log(obj?.propertyA?.propertyB)
 
 ### Prototype
 
-- Function.prototype.call()
-	```javascript
-		function ProtolTypeCall() {
-			const slicedArray = [].slice.call(arguments, 0, 3)
-			console.log(slicedArray)
-		}
-		ProtolTypeCall(1,2,3,4,5,6,7,8,9)
-		// [1,2,3]
-	```
 - Object.setPrototypeOf (obj, prototype)
 
 ## [Regular expressions](https://regex101.com/)
 
-## Array.prototype.entries
+## Function.prototype
+
+### call()
+
+```javascript
+function ProtolTypeCall() {
+	const slicedArray = [].slice.call(arguments, 0, 3)
+	console.log(slicedArray)
+}
+ProtolTypeCall(1,2,3,4,5,6,7,8,9)
+// [1,2,3]
+```
+
+
+
+## Array.prototype
+
+### entries()
 
 Just same as the Python method: **enumerate**
 
@@ -83,6 +91,16 @@ for (const [key, value] of Object.entries({a: 1})) {
     console.log(`${key}: ${value}`)
 }
 ```
+
+### 
+
+
+
+
+
+
+
+
 
 ## Reference Object
 
@@ -119,43 +137,6 @@ Notice All the JavaScript Object is the reference of the proto type. As the code
 
 ```javascript
 let a = {a: 1}	// same as let a = new Object(a,1)
-```
-
-## MutationObserver
-
-Create a MutationObserver for the DOM to watch the DOM's mutation. (i.e. the Api for the MutaionObserver can custom the
-config of the Object watch)
-
-```html
-
-<div class="bg-danger" id="app">
-    <p id="test">test</p>
-</div>
-
-<script>
-    let target = document.getElementById("app")
-    let config = {
-        childList: true,
-        attributes: true
-    }
-    let observer = new MutationObserver(function (MutationList) {
-        for (const mutationRecord of MutationList) {
-            if (mutationRecord.type === "childList") {
-                console.log("The childList you Observed have been changed")
-            }
-            if (mutationRecord.type === "attributes") {
-                console.log("The attributes you Observed have been changed")
-            }
-            console.log(mutationRecord)
-        }
-    })
-    observer.observe(target, config)
-
-    document.getElementById("test").addEventListener('click', (event) => {
-        target.append("Append", document.createElement('p'))
-        target.className = "bg-primary"
-    })
-</script>
 ```
 
 ## Destructuring assignment
@@ -216,11 +197,11 @@ let
 obj3 = {...obj1} // Same as Object.assign
 ```
 
-## Async/Await
+## Asynchronous JavaScript
 
-Keep in mind that the asynchronous function will be add to the Event queue and waiting for the main thread to finished.
-And if the asynchronous function have included another function it will be show the feature like below. **(
-DataStructure)**
+Keep in mind that the asynchronous function will be add to the Event queue and waiting for the main thread finished.  
+
+And if the asynchronous function have included another function it will be show the feature like below. **(DataStructure)**
 
 ```javascript
 // First Queue
@@ -244,7 +225,11 @@ setTimeout(() => {
 
 ```
 
-### Async Function
+### Promise
+
+
+
+### Async Function and await
 
 > **Description:**
 >
@@ -296,7 +281,43 @@ asyncFunc()
 
 
 
-Function execution order of `async`
+### Example
+
+```javascript
+async function async1() {
+    console.log("async1 start");
+    await  async2();
+    console.log("async1 end");
+}
+async  function async2() {
+    console.log( 'async2');
+}
+console.log("script start");
+setTimeout(function () {
+    console.log("settimeout");
+},0);
+async1();
+new Promise(function (resolve) {
+    console.log("promise1");
+    resolve();
+}).then(function () {
+    console.log("promise2");
+});
+console.log('script end');
+
+/*
+Script Start
+async1 start
+async2
+promise1
+script end
+async1 end
+promise2
+settimeout
+*/
+```
+
+
 
 
 
@@ -320,3 +341,40 @@ Function execution order of `async`
 - Blob (Binary Large Object)
 
 - FileSystemHandle
+
+### MutationObserver
+
+Create a MutationObserver for the DOM to watch the DOM's mutation. (i.e. the Api for the MutaionObserver can custom the config of the Object watch)
+
+```html
+<div class="bg-danger" id="app">
+    <p id="test">test</p>
+</div>
+
+<script>
+    let target = document.getElementById("app")
+    let config = {
+        childList: true,
+        attributes: true
+    }
+    let observer = new MutationObserver(function (MutationList) {
+        for (const mutationRecord of MutationList) {
+            if (mutationRecord.type === "childList") {
+                console.log("The childList you Observed have been changed")
+            }
+            if (mutationRecord.type === "attributes") {
+                console.log("The attributes you Observed have been changed")
+            }
+            console.log(mutationRecord)
+        }
+    })
+    observer.observe(target, config)
+
+    document.getElementById("test").addEventListener('click', (event) => {
+        target.append("Append", document.createElement('p'))
+        target.className = "bg-primary"
+    })
+</script>
+```
+
+## 

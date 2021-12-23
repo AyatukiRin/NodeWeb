@@ -101,7 +101,7 @@ let parent = {
 
 let child = {
     // inJect can be a Array or a Object that can have two property from and default.
-    Arrayinject: ['parentData']
+    Arrayinject: ['parentData'],
     Objectinject: {
     	// the from property is the key (string or Symbol) to search for in available injections, and the default property is used as fallback value
     	CustomName: {
