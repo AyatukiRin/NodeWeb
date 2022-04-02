@@ -52,6 +52,9 @@ It hava serval template framwork for the Front-end develop. Just see the documen
 
 ## V-model
 
+### .sync vs v-model
+> [check the multiple v-model section.](https://vuejs.org/guide/components/events.html)
+
 ## Just known V-model is the simplify way of the children component to pass the data or
 
 sync the data by the props from the parents.
