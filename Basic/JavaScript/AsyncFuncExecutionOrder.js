@@ -70,9 +70,10 @@ async function async1() {
     console.log("async1 end");
 }
 async  function async2() {
-    console.log( 'async2');
+    console.log( 'async2 start');
 }
 console.log("script start");
+
 setTimeout(function () {
     console.log("settimeout");
 },0);

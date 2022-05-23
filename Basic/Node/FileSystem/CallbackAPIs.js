@@ -1,14 +1,13 @@
-const { mkdir } = require("fs")
+const PROJECT_PATH = "D:\\Project\\NodeWeb\\"
+const fs = require("fs")
 
-console.log("Script Executing...")  // 1
-
-setTimeout(()=> {
-    console.log("setTimeout.....")
-}, 0)   // 3
-
-
-mkdir("./TestDirectory", {recursive: true}, (err => {
-    console.log(err)    // 4
-}))
-
-console.log("Script Executed done.")// 2
+fs.readdir(PROJECT_PATH,
+    {withFileTypes: true, encoding: "utf-8"},
+    (err, files) => {
+        if (err) console.log(err)
+        files.forEach(file => {
+                console.log(`Name: ${file.name}, IsDirectory: ${file.isDirectory()}`)
+            }
+        )
+    }
+)
